@@ -152,6 +152,27 @@
   <ItemGroup>
     <None Include="Resources\Excluir_24.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pessoas.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\perguntas.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\setaDireita.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\setaDireitaAll.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SetaEsquerda.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SetaEsquerdaAll.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mais.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

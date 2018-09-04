@@ -219,7 +219,6 @@ namespace WinAvalia
             this.barraInicial.Size = new System.Drawing.Size(654, 31);
             this.barraInicial.TabIndex = 7;
             this.barraInicial.Text = "toolStrip1";
-            this.barraInicial.Visible = false;
             // 
             // btNovo
             // 
