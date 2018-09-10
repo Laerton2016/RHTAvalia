@@ -18,10 +18,12 @@ namespace AvaliaCore.Entidade
         private ICollection<Pergunta> _perguntas;
         private ICollection<PessoaAvaliacao> _avaliados;
         private String _descricao;
+        private ICollection<Peso> _pesos;
         public Avaliacao()
         {
             _perguntas = new HashSet<Pergunta>();
             _avaliados = new HashSet<PessoaAvaliacao>();
+            _pesos = new HashSet<Peso>();
         }
 
         public string Descricao
@@ -80,7 +82,27 @@ namespace AvaliaCore.Entidade
         [ForeignKey("IdAvaliador")]
         public virtual Pessoa Avaliador { get; set; }
 
-        
-            
+        public virtual ICollection<Peso> Pesos
+        {
+            get => _pesos;
+            set => _pesos = value;
+        }
+
+        public void AddPeso(Classificacao classificacao, Double peso)
+        {
+            Peso p = new Peso()
+            {
+                Avaliacao = this,
+                Classificacao = classificacao,
+                PesoAvaliativo = peso
+            };
+            _pesos.Add(p);
+        }
+
+        public void RemPeso(Classificacao classificacao)
+        {
+            Peso peso = _pesos.Where(p => p.IdClassificacao == classificacao.Id).First();
+            if(peso != null) _pesos.Remove(peso);
+        }
     }
 }

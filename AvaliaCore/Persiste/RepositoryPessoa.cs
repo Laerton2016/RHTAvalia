@@ -97,5 +97,19 @@ namespace AvaliaCore.Persiste
             String sql = String.Format("Select * from pessoa where nome like '%{0}%';", nome);
             return _context.Pessoas.SqlQuery(sql).ToList();
         }
+
+        /// <summary>
+        /// Busca por pessoas que não estão na lista de avaliados de uma avaliação, excluindo o avaliador.
+        /// </summary>
+        /// <param name="idAvaliacao">Id da avaliação</param>
+        /// <returns>Lista de pessoas não avaliadas</returns>
+        public List<Pessoa> FindPessoasNaoAvaliadaByIdAvaliacao(long idAvaliacao, long idAvaliador)
+        {
+            String SQL = String.Format("select pessoa.* from pessoa left join " +
+             "(select pessoa.* from pessoa join pessoaavaliacao on pessoa.id = pessoaavaliacao.idpessoa where pessoaavaliacao.idavaliacao = {0}) as p1 " +
+             " on p1.id = pessoa.id where p1.id is null and pessoa.id != {1}; ",
+            idAvaliacao, idAvaliador);
+            return this._context.Pessoas.SqlQuery(SQL).ToList();
+        }
     }
 }

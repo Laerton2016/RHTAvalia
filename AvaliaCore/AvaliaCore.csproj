@@ -73,6 +73,7 @@
     <Compile Include="Entidade\Avaliacao.cs" />
     <Compile Include="Entidade\Classificacao.cs" />
     <Compile Include="Entidade\Pergunta.cs" />
+    <Compile Include="Entidade\Peso.cs" />
     <Compile Include="Entidade\Pessoa.cs" />
     <Compile Include="Entidade\PessoaAvaliacao.cs" />
     <Compile Include="Entidade\Resposta.cs" />
@@ -83,6 +84,7 @@
     <Compile Include="Persiste\RepositoryPessoa.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service\ClassificacaoService.cs" />
     <Compile Include="Service\PessoaService.cs" />
     <Compile Include="Service\ServiceAvalicao.cs" />
     <Compile Include="Util\Util.cs" />

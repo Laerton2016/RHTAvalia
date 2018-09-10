@@ -17,6 +17,9 @@ namespace AvaliaCore.Context
         public DbSet<Pessoa> Pessoas { get; set; }
         public DbSet<Resposta> Respostas { get; set; }
         public DbSet<PessoaAvaliacao> PessoaAvaliacaos { get; set; }
+        public DbSet<Peso> Pesos { get; set; }
+
+
         
     }
 }

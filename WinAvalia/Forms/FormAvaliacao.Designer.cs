@@ -45,16 +45,18 @@
             this.btBusca = new System.Windows.Forms.ToolStripButton();
             this.panelDados = new System.Windows.Forms.Panel();
             this.panelPerguntas = new System.Windows.Forms.Panel();
+            this.btAddPer = new System.Windows.Forms.Button();
+            this.cobClassificacao = new System.Windows.Forms.ComboBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.gbAlternativas = new System.Windows.Forms.GroupBox();
-            this.btMais = new System.Windows.Forms.Button();
             this.btAddAlt = new System.Windows.Forms.Button();
+            this.btSaveAlt = new System.Windows.Forms.Button();
             this.lbAlternativas = new System.Windows.Forms.ListBox();
             this.chPositivo = new System.Windows.Forms.CheckBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtAlt = new System.Windows.Forms.TextBox();
             this.txtAlternativa = new System.Windows.Forms.Label();
             this.lbPerguntas = new System.Windows.Forms.ListBox();
             this.btSalvarPerguntas = new System.Windows.Forms.Button();
-            this.btAddPer = new System.Windows.Forms.Button();
             this.cobTipo = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.txtObs = new System.Windows.Forms.TextBox();
@@ -71,7 +73,12 @@
             this.lbAvalia = new System.Windows.Forms.ListBox();
             this.grupPessoas = new System.Windows.Forms.GroupBox();
             this.lbPessoas = new System.Windows.Forms.ListBox();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.panelPesos = new System.Windows.Forms.Panel();
+            this.btSalvaPesos = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
+            this.dgvPesos = new System.Windows.Forms.DataGridView();
+            this.panelBoteos = new System.Windows.Forms.Panel();
+            this.btPesos = new System.Windows.Forms.Button();
             this.btPerguntas = new System.Windows.Forms.Button();
             this.btPessoas = new System.Windows.Forms.Button();
             this.btSalvar = new System.Windows.Forms.Button();
@@ -95,7 +102,9 @@
             this.panelPessoas.SuspendLayout();
             this.gAvaliar.SuspendLayout();
             this.grupPessoas.SuspendLayout();
-            this.panel2.SuspendLayout();
+            this.panelPesos.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPesos)).BeginInit();
+            this.panelBoteos.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelLeft
@@ -236,7 +245,8 @@
             // 
             this.panelDados.Controls.Add(this.panelPerguntas);
             this.panelDados.Controls.Add(this.panelPessoas);
-            this.panelDados.Controls.Add(this.panel2);
+            this.panelDados.Controls.Add(this.panelPesos);
+            this.panelDados.Controls.Add(this.panelBoteos);
             this.panelDados.Controls.Add(this.btSalvar);
             this.panelDados.Controls.Add(this.cobPessoas);
             this.panelDados.Controls.Add(this.rtxtDescricao);
@@ -253,30 +263,59 @@
             // 
             // panelPerguntas
             // 
+            this.panelPerguntas.Controls.Add(this.btAddPer);
+            this.panelPerguntas.Controls.Add(this.cobClassificacao);
+            this.panelPerguntas.Controls.Add(this.label8);
             this.panelPerguntas.Controls.Add(this.gbAlternativas);
             this.panelPerguntas.Controls.Add(this.lbPerguntas);
             this.panelPerguntas.Controls.Add(this.btSalvarPerguntas);
-            this.panelPerguntas.Controls.Add(this.btAddPer);
             this.panelPerguntas.Controls.Add(this.cobTipo);
             this.panelPerguntas.Controls.Add(this.label6);
             this.panelPerguntas.Controls.Add(this.txtObs);
             this.panelPerguntas.Controls.Add(this.txtPergunta);
             this.panelPerguntas.Controls.Add(this.label5);
             this.panelPerguntas.Controls.Add(this.label4);
-            this.panelPerguntas.Location = new System.Drawing.Point(561, 179);
+            this.panelPerguntas.Location = new System.Drawing.Point(29, 150);
             this.panelPerguntas.Name = "panelPerguntas";
             this.panelPerguntas.Size = new System.Drawing.Size(762, 301);
             this.panelPerguntas.TabIndex = 9;
             this.panelPerguntas.Visible = false;
             this.panelPerguntas.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
+            // btAddPer
+            // 
+            this.btAddPer.Image = global::WinAvalia.Properties.Resources.mais;
+            this.btAddPer.Location = new System.Drawing.Point(686, 80);
+            this.btAddPer.Name = "btAddPer";
+            this.btAddPer.Size = new System.Drawing.Size(39, 29);
+            this.btAddPer.TabIndex = 25;
+            this.btAddPer.UseVisualStyleBackColor = true;
+            this.btAddPer.Click += new System.EventHandler(this.btAddPer_Click);
+            // 
+            // cobClassificacao
+            // 
+            this.cobClassificacao.FormattingEnabled = true;
+            this.cobClassificacao.Location = new System.Drawing.Point(447, 79);
+            this.cobClassificacao.Name = "cobClassificacao";
+            this.cobClassificacao.Size = new System.Drawing.Size(233, 29);
+            this.cobClassificacao.TabIndex = 24;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(334, 82);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(107, 21);
+            this.label8.TabIndex = 23;
+            this.label8.Text = "Classificação:";
+            // 
             // gbAlternativas
             // 
-            this.gbAlternativas.Controls.Add(this.btMais);
             this.gbAlternativas.Controls.Add(this.btAddAlt);
+            this.gbAlternativas.Controls.Add(this.btSaveAlt);
             this.gbAlternativas.Controls.Add(this.lbAlternativas);
             this.gbAlternativas.Controls.Add(this.chPositivo);
-            this.gbAlternativas.Controls.Add(this.textBox3);
+            this.gbAlternativas.Controls.Add(this.txtAlt);
             this.gbAlternativas.Controls.Add(this.txtAlternativa);
             this.gbAlternativas.Location = new System.Drawing.Point(154, 115);
             this.gbAlternativas.Name = "gbAlternativas";
@@ -286,25 +325,27 @@
             this.gbAlternativas.Text = "Alternativas";
             this.gbAlternativas.Visible = false;
             // 
-            // btMais
-            // 
-            this.btMais.Image = global::WinAvalia.Properties.Resources.mais;
-            this.btMais.Location = new System.Drawing.Point(393, 25);
-            this.btMais.Name = "btMais";
-            this.btMais.Size = new System.Drawing.Size(37, 38);
-            this.btMais.TabIndex = 24;
-            this.btMais.Tag = "Salva as perguntas na avaliação";
-            this.btMais.UseVisualStyleBackColor = true;
-            // 
             // btAddAlt
             // 
-            this.btAddAlt.Image = global::WinAvalia.Properties.Resources.salvar_24;
-            this.btAddAlt.Location = new System.Drawing.Point(436, 25);
+            this.btAddAlt.Image = global::WinAvalia.Properties.Resources.mais;
+            this.btAddAlt.Location = new System.Drawing.Point(393, 25);
             this.btAddAlt.Name = "btAddAlt";
             this.btAddAlt.Size = new System.Drawing.Size(37, 38);
-            this.btAddAlt.TabIndex = 23;
+            this.btAddAlt.TabIndex = 24;
             this.btAddAlt.Tag = "Salva as perguntas na avaliação";
             this.btAddAlt.UseVisualStyleBackColor = true;
+            this.btAddAlt.Click += new System.EventHandler(this.btAddAlt_Click);
+            // 
+            // btSaveAlt
+            // 
+            this.btSaveAlt.Image = global::WinAvalia.Properties.Resources.salvar_24;
+            this.btSaveAlt.Location = new System.Drawing.Point(436, 25);
+            this.btSaveAlt.Name = "btSaveAlt";
+            this.btSaveAlt.Size = new System.Drawing.Size(37, 38);
+            this.btSaveAlt.TabIndex = 23;
+            this.btSaveAlt.Tag = "Salva as perguntas na avaliação";
+            this.btSaveAlt.UseVisualStyleBackColor = true;
+            this.btSaveAlt.Click += new System.EventHandler(this.btSaveAlt_Click);
             // 
             // lbAlternativas
             // 
@@ -318,28 +359,28 @@
             // chPositivo
             // 
             this.chPositivo.AutoSize = true;
-            this.chPositivo.Location = new System.Drawing.Point(282, 32);
+            this.chPositivo.Location = new System.Drawing.Point(317, 32);
             this.chPositivo.Name = "chPositivo";
             this.chPositivo.Size = new System.Drawing.Size(84, 25);
             this.chPositivo.TabIndex = 2;
             this.chPositivo.Text = "Positivo";
             this.chPositivo.UseVisualStyleBackColor = true;
             // 
-            // textBox3
+            // txtAlt
             // 
-            this.textBox3.Location = new System.Drawing.Point(61, 30);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(218, 29);
-            this.textBox3.TabIndex = 1;
+            this.txtAlt.Location = new System.Drawing.Point(87, 30);
+            this.txtAlt.Name = "txtAlt";
+            this.txtAlt.Size = new System.Drawing.Size(227, 29);
+            this.txtAlt.TabIndex = 1;
             // 
             // txtAlternativa
             // 
             this.txtAlternativa.AutoSize = true;
-            this.txtAlternativa.Location = new System.Drawing.Point(7, 38);
+            this.txtAlternativa.Location = new System.Drawing.Point(7, 34);
             this.txtAlternativa.Name = "txtAlternativa";
-            this.txtAlternativa.Size = new System.Drawing.Size(52, 21);
+            this.txtAlternativa.Size = new System.Drawing.Size(84, 21);
             this.txtAlternativa.TabIndex = 0;
-            this.txtAlternativa.Text = "label7";
+            this.txtAlternativa.Text = "Alternativa";
             // 
             // lbPerguntas
             // 
@@ -359,15 +400,7 @@
             this.btSalvarPerguntas.TabIndex = 20;
             this.btSalvarPerguntas.Tag = "Salva as perguntas na avaliação";
             this.btSalvarPerguntas.UseVisualStyleBackColor = true;
-            // 
-            // btAddPer
-            // 
-            this.btAddPer.Location = new System.Drawing.Point(348, 80);
-            this.btAddPer.Name = "btAddPer";
-            this.btAddPer.Size = new System.Drawing.Size(39, 29);
-            this.btAddPer.TabIndex = 10;
-            this.btAddPer.Text = "button8";
-            this.btAddPer.UseVisualStyleBackColor = true;
+            this.btSalvarPerguntas.Click += new System.EventHandler(this.btSalvarPerguntas_Click);
             // 
             // cobTipo
             // 
@@ -427,7 +460,7 @@
             this.panelPessoas.Controls.Add(this.btAdPessoa);
             this.panelPessoas.Controls.Add(this.gAvaliar);
             this.panelPessoas.Controls.Add(this.grupPessoas);
-            this.panelPessoas.Location = new System.Drawing.Point(26, 179);
+            this.panelPessoas.Location = new System.Drawing.Point(26, 178);
             this.panelPessoas.Name = "panelPessoas";
             this.panelPessoas.Size = new System.Drawing.Size(529, 301);
             this.panelPessoas.TabIndex = 8;
@@ -442,6 +475,7 @@
             this.btSalvarPessoas.TabIndex = 20;
             this.btSalvarPessoas.Tag = "Slavar as pessoas para avaliação";
             this.btSalvarPessoas.UseVisualStyleBackColor = true;
+            this.btSalvarPessoas.Click += new System.EventHandler(this.btSalvarPessoas_Click);
             // 
             // btRemPessoas
             // 
@@ -451,6 +485,7 @@
             this.btRemPessoas.Size = new System.Drawing.Size(37, 38);
             this.btRemPessoas.TabIndex = 19;
             this.btRemPessoas.UseVisualStyleBackColor = true;
+            this.btRemPessoas.Click += new System.EventHandler(this.btRemPessoas_Click);
             // 
             // btRemPessoa
             // 
@@ -460,6 +495,7 @@
             this.btRemPessoa.Size = new System.Drawing.Size(37, 38);
             this.btRemPessoa.TabIndex = 18;
             this.btRemPessoa.UseVisualStyleBackColor = true;
+            this.btRemPessoa.Click += new System.EventHandler(this.btRemPessoa_Click);
             // 
             // btAddPessoas
             // 
@@ -469,6 +505,7 @@
             this.btAddPessoas.Size = new System.Drawing.Size(37, 38);
             this.btAddPessoas.TabIndex = 17;
             this.btAddPessoas.UseVisualStyleBackColor = true;
+            this.btAddPessoas.Click += new System.EventHandler(this.btAddPessoas_Click);
             // 
             // btAdPessoa
             // 
@@ -478,6 +515,7 @@
             this.btAdPessoa.Size = new System.Drawing.Size(37, 38);
             this.btAdPessoa.TabIndex = 16;
             this.btAdPessoa.UseVisualStyleBackColor = true;
+            this.btAdPessoa.Click += new System.EventHandler(this.btAdPessoa_Click);
             // 
             // gAvaliar
             // 
@@ -519,14 +557,65 @@
             this.lbPessoas.Size = new System.Drawing.Size(204, 209);
             this.lbPessoas.TabIndex = 0;
             // 
-            // panel2
+            // panelPesos
             // 
-            this.panel2.Controls.Add(this.btPerguntas);
-            this.panel2.Controls.Add(this.btPessoas);
-            this.panel2.Location = new System.Drawing.Point(465, 123);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(90, 47);
-            this.panel2.TabIndex = 7;
+            this.panelPesos.Controls.Add(this.btSalvaPesos);
+            this.panelPesos.Controls.Add(this.label7);
+            this.panelPesos.Controls.Add(this.dgvPesos);
+            this.panelPesos.Location = new System.Drawing.Point(523, 168);
+            this.panelPesos.Name = "panelPesos";
+            this.panelPesos.Size = new System.Drawing.Size(399, 290);
+            this.panelPesos.TabIndex = 13;
+            this.panelPesos.Visible = false;
+            // 
+            // btSalvaPesos
+            // 
+            this.btSalvaPesos.Image = global::WinAvalia.Properties.Resources.salvar_24;
+            this.btSalvaPesos.Location = new System.Drawing.Point(344, 245);
+            this.btSalvaPesos.Name = "btSalvaPesos";
+            this.btSalvaPesos.Size = new System.Drawing.Size(37, 38);
+            this.btSalvaPesos.TabIndex = 21;
+            this.btSalvaPesos.Tag = "Slavar as pessoas para avaliação";
+            this.btSalvaPesos.UseVisualStyleBackColor = true;
+            this.btSalvaPesos.Click += new System.EventHandler(this.btSalvaPesos_Click_1);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(11, 13);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(172, 42);
+            this.label7.TabIndex = 2;
+            this.label7.Text = "Defina os pesos sobre \r\nos tipos de perguntas:";
+            // 
+            // dgvPesos
+            // 
+            this.dgvPesos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvPesos.Location = new System.Drawing.Point(15, 58);
+            this.dgvPesos.Name = "dgvPesos";
+            this.dgvPesos.Size = new System.Drawing.Size(366, 181);
+            this.dgvPesos.TabIndex = 0;
+            // 
+            // panelBoteos
+            // 
+            this.panelBoteos.Controls.Add(this.btPesos);
+            this.panelBoteos.Controls.Add(this.btPerguntas);
+            this.panelBoteos.Controls.Add(this.btPessoas);
+            this.panelBoteos.Enabled = false;
+            this.panelBoteos.Location = new System.Drawing.Point(595, 121);
+            this.panelBoteos.Name = "panelBoteos";
+            this.panelBoteos.Size = new System.Drawing.Size(131, 47);
+            this.panelBoteos.TabIndex = 7;
+            // 
+            // btPesos
+            // 
+            this.btPesos.Image = global::WinAvalia.Properties.Resources.Avalia;
+            this.btPesos.Location = new System.Drawing.Point(89, 3);
+            this.btPesos.Name = "btPesos";
+            this.btPesos.Size = new System.Drawing.Size(37, 38);
+            this.btPesos.TabIndex = 9;
+            this.btPesos.UseVisualStyleBackColor = true;
+            this.btPesos.Click += new System.EventHandler(this.btPesos_Click);
             // 
             // btPerguntas
             // 
@@ -553,18 +642,19 @@
             // btSalvar
             // 
             this.btSalvar.Image = global::WinAvalia.Properties.Resources.salvar_24;
-            this.btSalvar.Location = new System.Drawing.Point(766, 129);
+            this.btSalvar.Location = new System.Drawing.Point(732, 123);
             this.btSalvar.Name = "btSalvar";
             this.btSalvar.Size = new System.Drawing.Size(37, 38);
             this.btSalvar.TabIndex = 6;
             this.btSalvar.UseVisualStyleBackColor = true;
+            this.btSalvar.Click += new System.EventHandler(this.btSalvar_Click);
             // 
             // cobPessoas
             // 
             this.cobPessoas.FormattingEnabled = true;
-            this.cobPessoas.Location = new System.Drawing.Point(108, 123);
+            this.cobPessoas.Location = new System.Drawing.Point(193, 121);
             this.cobPessoas.Name = "cobPessoas";
-            this.cobPessoas.Size = new System.Drawing.Size(342, 29);
+            this.cobPessoas.Size = new System.Drawing.Size(396, 29);
             this.cobPessoas.TabIndex = 5;
             // 
             // rtxtDescricao
@@ -597,18 +687,19 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(22, 129);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(80, 21);
+            this.label2.Size = new System.Drawing.Size(165, 21);
             this.label2.TabIndex = 1;
-            this.label2.Text = "Avaliador:";
+            this.label2.Text = "Selecione o avaliador:";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(22, 35);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(178, 21);
+            this.label1.Size = new System.Drawing.Size(554, 21);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Descrição da avaliação:";
+            this.label1.Text = "Forneça uma breve descrição do processo desta avaliação no campo abaixo:";
             // 
             // btCancelar
             // 
@@ -649,7 +740,10 @@
             this.panelPessoas.ResumeLayout(false);
             this.gAvaliar.ResumeLayout(false);
             this.grupPessoas.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
+            this.panelPesos.ResumeLayout(false);
+            this.panelPesos.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPesos)).EndInit();
+            this.panelBoteos.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -679,7 +773,7 @@
         private System.Windows.Forms.Label labId;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btCancelar;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panelBoteos;
         private System.Windows.Forms.Button btPessoas;
         private System.Windows.Forms.Button btPerguntas;
         private System.Windows.Forms.Panel panelPessoas;
@@ -696,18 +790,25 @@
         private System.Windows.Forms.TextBox txtPergunta;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button btAddPer;
         private System.Windows.Forms.Button btSalvarPessoas;
         private System.Windows.Forms.Button btSalvarPerguntas;
         private System.Windows.Forms.GroupBox gbAlternativas;
-        private System.Windows.Forms.Button btMais;
         private System.Windows.Forms.Button btAddAlt;
+        private System.Windows.Forms.Button btSaveAlt;
         private System.Windows.Forms.ListBox lbAlternativas;
         private System.Windows.Forms.CheckBox chPositivo;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtAlt;
         private System.Windows.Forms.Label txtAlternativa;
         private System.Windows.Forms.ListBox lbPerguntas;
         private System.Windows.Forms.ListBox lbAvalia;
         private System.Windows.Forms.ListBox lbPessoas;
+        private System.Windows.Forms.Button btPesos;
+        private System.Windows.Forms.Panel panelPesos;
+        private System.Windows.Forms.Button btSalvaPesos;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.DataGridView dgvPesos;
+        private System.Windows.Forms.ComboBox cobClassificacao;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Button btAddPer;
     }
 }

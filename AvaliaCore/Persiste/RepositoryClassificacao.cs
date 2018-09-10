@@ -84,7 +84,7 @@ namespace AvaliaCore.Persiste
         /// <returns></returns>
         public List<Classificacao> FinAll()
         {
-            return _context.Classificacaos.ToList();
+            return _context.Classificacaos.OrderBy(c=> c.Descricao).ToList();
         }
     }
 }

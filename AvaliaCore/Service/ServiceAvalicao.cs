@@ -14,11 +14,13 @@ namespace AvaliaCore.Service
         private RHTContext _context;
         private RepositoryAvalaicao _rp;
         private RepositoryPessoa _rpessoa;
+        private RepositoryClassificacao _rc;
         public ServiceAvalicao(RHTContext context)
         {
             _context = context;
             _rp = new RepositoryAvalaicao(context);
             _rpessoa = new RepositoryPessoa(context);
+            _rc = new RepositoryClassificacao(context);
         }
 
         public void Save(Avaliacao a)
@@ -45,6 +47,19 @@ namespace AvaliaCore.Service
         {
             return _rpessoa.FindAll();
         }
-        
+
+        public List<Pessoa> PessoasNaoAvaliadas(Int64 idAvaliacao, Int64 idAvaliador)
+        {
+            List<Pessoa> pessoas = _rpessoa.FindPessoasNaoAvaliadaByIdAvaliacao(idAvaliacao, idAvaliador);
+            return pessoas;
+        }
+        /// <summary>
+        /// Retorna todas as classificações cadastradas no banco de dados
+        /// </summary>
+        /// <returns></returns>
+        public List<Classificacao> AllClassificacaos()
+        {
+            return _rc.FinAll();
+        }
     }
 }

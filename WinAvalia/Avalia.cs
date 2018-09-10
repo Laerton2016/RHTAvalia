@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using AvaliaCore.Context;
 using WinAvalia.Form;
+using WinAvalia.Forms;
 
 namespace WinAvalia
 {
@@ -120,6 +121,15 @@ namespace WinAvalia
         private void avaliacaoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             System.Windows.Forms.Form childForm = new FormAvaliacao(_context);
+            childForm.Show();
+            childForm.MdiParent = this;
+            childForm.WindowState = FormWindowState.Normal;
+            childForm.WindowState = FormWindowState.Maximized;
+        }
+
+        private void classificaçãoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            System.Windows.Forms.Form childForm = new FormClassificacao(_context);
             childForm.Show();
             childForm.MdiParent = this;
             childForm.WindowState = FormWindowState.Normal;

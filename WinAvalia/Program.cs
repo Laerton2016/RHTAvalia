@@ -22,6 +22,7 @@ namespace WinAvalia
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+
             Application.Run(new Avalia());
         }
     }

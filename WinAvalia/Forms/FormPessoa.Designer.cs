@@ -69,7 +69,10 @@ namespace WinAvalia
             // 
             // panelLeft
             // 
+            this.panelLeft.Controls.Add(this.btCancela);
             this.panelLeft.Size = new System.Drawing.Size(75, 368);
+            this.panelLeft.Controls.SetChildIndex(this.btCancela, 0);
+            this.panelLeft.Controls.SetChildIndex(this.picIcone, 0);
             // 
             // picIcone
             // 
@@ -90,7 +93,6 @@ namespace WinAvalia
             this.panelContainer.Controls.Add(this.labId);
             this.panelContainer.Controls.Add(this.label3);
             this.panelContainer.Controls.Add(this.btSalvar);
-            this.panelContainer.Controls.Add(this.btCancela);
             this.panelContainer.Controls.Add(this.txtNome);
             this.panelContainer.Controls.Add(this.CobFuncao);
             this.panelContainer.Controls.Add(this.label2);
@@ -100,21 +102,22 @@ namespace WinAvalia
             // 
             // btSalvar
             // 
+            this.btSalvar.Image = global::WinAvalia.Properties.Resources.salvar_24;
             this.btSalvar.Location = new System.Drawing.Point(519, 184);
             this.btSalvar.Name = "btSalvar";
             this.btSalvar.Size = new System.Drawing.Size(75, 37);
             this.btSalvar.TabIndex = 11;
-            this.btSalvar.Text = "Salvar";
             this.btSalvar.UseVisualStyleBackColor = true;
             this.btSalvar.Click += new System.EventHandler(this.btSalvar_Click);
             // 
             // btCancela
             // 
-            this.btCancela.Location = new System.Drawing.Point(65, 184);
+            this.btCancela.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btCancela.Image = global::WinAvalia.Properties.Resources.Excluir_24;
+            this.btCancela.Location = new System.Drawing.Point(0, 331);
             this.btCancela.Name = "btCancela";
             this.btCancela.Size = new System.Drawing.Size(75, 37);
             this.btCancela.TabIndex = 10;
-            this.btCancela.Text = "Cancela";
             this.btCancela.UseVisualStyleBackColor = true;
             this.btCancela.Click += new System.EventHandler(this.btCancela_Click);
             // 

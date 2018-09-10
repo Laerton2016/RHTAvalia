@@ -72,6 +72,7 @@
             this.printPreviewToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.helpToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.avaliacaoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.classificaçãoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pessoaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -111,6 +112,7 @@
             // 
             this.cadastroToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.avaliacaoToolStripMenuItem,
+            this.classificaçãoToolStripMenuItem,
             this.pessoaToolStripMenuItem});
             this.cadastroToolStripMenuItem.Name = "cadastroToolStripMenuItem";
             this.cadastroToolStripMenuItem.Size = new System.Drawing.Size(66, 20);
@@ -433,15 +435,23 @@
             // 
             this.avaliacaoToolStripMenuItem.Image = global::WinAvalia.Properties.Resources.Avalia;
             this.avaliacaoToolStripMenuItem.Name = "avaliacaoToolStripMenuItem";
-            this.avaliacaoToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.avaliacaoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.avaliacaoToolStripMenuItem.Text = "Avaliacao";
             this.avaliacaoToolStripMenuItem.Click += new System.EventHandler(this.avaliacaoToolStripMenuItem_Click);
+            // 
+            // classificaçãoToolStripMenuItem
+            // 
+            this.classificaçãoToolStripMenuItem.Image = global::WinAvalia.Properties.Resources.classificacao_24;
+            this.classificaçãoToolStripMenuItem.Name = "classificaçãoToolStripMenuItem";
+            this.classificaçãoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.classificaçãoToolStripMenuItem.Text = "Classificação";
+            this.classificaçãoToolStripMenuItem.Click += new System.EventHandler(this.classificaçãoToolStripMenuItem_Click);
             // 
             // pessoaToolStripMenuItem
             // 
             this.pessoaToolStripMenuItem.Image = global::WinAvalia.Properties.Resources.cliente_24;
             this.pessoaToolStripMenuItem.Name = "pessoaToolStripMenuItem";
-            this.pessoaToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.pessoaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.pessoaToolStripMenuItem.Text = "Pessoa";
             this.pessoaToolStripMenuItem.Click += new System.EventHandler(this.pessoaToolStripMenuItem_Click);
             // 
@@ -636,6 +646,7 @@
         private System.Windows.Forms.ToolStripMenuItem cadastroToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pessoaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem avaliacaoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem classificaçãoToolStripMenuItem;
     }
 }
 
