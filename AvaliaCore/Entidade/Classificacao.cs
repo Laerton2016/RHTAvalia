@@ -26,5 +26,10 @@ namespace AvaliaCore.Entidade
             get { return _descricao; }
             set { _descricao = value; }
         }
+
+        public override string ToString()
+        {
+            return Descricao.ToUpper();
+        }
     }
 }

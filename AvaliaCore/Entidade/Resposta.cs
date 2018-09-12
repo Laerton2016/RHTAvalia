@@ -51,5 +51,19 @@ namespace AvaliaCore.Entidade
 
         [ForeignKey("IdPessoa")]
         public virtual Pessoa Avaliado { get; set; }
+
+        public override string ToString()
+        {
+            String reposta = "";
+            if (Selecionada == null)
+            {
+                reposta = Nota.ToString();
+            }
+            else
+            {
+                reposta = Selecionada.Descricao;
+            }
+            return reposta.ToUpper();
+        }
     }
 }

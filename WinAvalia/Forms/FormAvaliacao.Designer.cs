@@ -38,17 +38,17 @@
             this.barraInicial = new System.Windows.Forms.ToolStrip();
             this.btNovo = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.labTermo = new System.Windows.Forms.ToolStripLabel();
-            this.txtTermo = new System.Windows.Forms.ToolStripTextBox();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.cobBusca = new System.Windows.Forms.ToolStripComboBox();
             this.btBusca = new System.Windows.Forms.ToolStripButton();
             this.panelDados = new System.Windows.Forms.Panel();
             this.panelPerguntas = new System.Windows.Forms.Panel();
+            this.BtEditPerg = new System.Windows.Forms.Button();
             this.btAddPer = new System.Windows.Forms.Button();
             this.cobClassificacao = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.gbAlternativas = new System.Windows.Forms.GroupBox();
+            this.btEditAlternativa = new System.Windows.Forms.Button();
             this.btAddAlt = new System.Windows.Forms.Button();
             this.btSaveAlt = new System.Windows.Forms.Button();
             this.lbAlternativas = new System.Windows.Forms.ListBox();
@@ -177,6 +177,7 @@
             this.btEditar.Name = "btEditar";
             this.btEditar.Size = new System.Drawing.Size(28, 28);
             this.btEditar.Text = "Edita o lote";
+            this.btEditar.Click += new System.EventHandler(this.btEditar_Click);
             // 
             // barraInicial
             // 
@@ -184,8 +185,6 @@
             this.barraInicial.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.btNovo,
             this.toolStripSeparator1,
-            this.labTermo,
-            this.txtTermo,
             this.toolStripLabel1,
             this.cobBusca,
             this.btBusca});
@@ -210,22 +209,11 @@
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(6, 31);
             // 
-            // labTermo
-            // 
-            this.labTermo.Name = "labTermo";
-            this.labTermo.Size = new System.Drawing.Size(91, 28);
-            this.labTermo.Text = "Termo de busca";
-            // 
-            // txtTermo
-            // 
-            this.txtTermo.Name = "txtTermo";
-            this.txtTermo.Size = new System.Drawing.Size(200, 31);
-            // 
             // toolStripLabel1
             // 
             this.toolStripLabel1.Name = "toolStripLabel1";
-            this.toolStripLabel1.Size = new System.Drawing.Size(84, 28);
-            this.toolStripLabel1.Text = "Tipo de busca:";
+            this.toolStripLabel1.Size = new System.Drawing.Size(102, 28);
+            this.toolStripLabel1.Text = "Buscar avaliações:";
             // 
             // cobBusca
             // 
@@ -240,6 +228,7 @@
             this.btBusca.Name = "btBusca";
             this.btBusca.Size = new System.Drawing.Size(28, 28);
             this.btBusca.Text = "Buscar";
+            this.btBusca.Click += new System.EventHandler(this.btBusca_Click);
             // 
             // panelDados
             // 
@@ -263,6 +252,7 @@
             // 
             // panelPerguntas
             // 
+            this.panelPerguntas.Controls.Add(this.BtEditPerg);
             this.panelPerguntas.Controls.Add(this.btAddPer);
             this.panelPerguntas.Controls.Add(this.cobClassificacao);
             this.panelPerguntas.Controls.Add(this.label8);
@@ -281,6 +271,16 @@
             this.panelPerguntas.TabIndex = 9;
             this.panelPerguntas.Visible = false;
             this.panelPerguntas.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // BtEditPerg
+            // 
+            this.BtEditPerg.Image = global::WinAvalia.Properties.Resources.Editar_24;
+            this.BtEditPerg.Location = new System.Drawing.Point(666, 260);
+            this.BtEditPerg.Name = "BtEditPerg";
+            this.BtEditPerg.Size = new System.Drawing.Size(39, 38);
+            this.BtEditPerg.TabIndex = 26;
+            this.BtEditPerg.UseVisualStyleBackColor = true;
+            this.BtEditPerg.Click += new System.EventHandler(this.BtEditPerg_Click);
             // 
             // btAddPer
             // 
@@ -311,6 +311,7 @@
             // 
             // gbAlternativas
             // 
+            this.gbAlternativas.Controls.Add(this.btEditAlternativa);
             this.gbAlternativas.Controls.Add(this.btAddAlt);
             this.gbAlternativas.Controls.Add(this.btSaveAlt);
             this.gbAlternativas.Controls.Add(this.lbAlternativas);
@@ -319,11 +320,21 @@
             this.gbAlternativas.Controls.Add(this.txtAlternativa);
             this.gbAlternativas.Location = new System.Drawing.Point(154, 115);
             this.gbAlternativas.Name = "gbAlternativas";
-            this.gbAlternativas.Size = new System.Drawing.Size(479, 174);
+            this.gbAlternativas.Size = new System.Drawing.Size(479, 186);
             this.gbAlternativas.TabIndex = 22;
             this.gbAlternativas.TabStop = false;
             this.gbAlternativas.Text = "Alternativas";
             this.gbAlternativas.Visible = false;
+            // 
+            // btEditAlternativa
+            // 
+            this.btEditAlternativa.Image = global::WinAvalia.Properties.Resources.Editar_24;
+            this.btEditAlternativa.Location = new System.Drawing.Point(434, 144);
+            this.btEditAlternativa.Name = "btEditAlternativa";
+            this.btEditAlternativa.Size = new System.Drawing.Size(39, 38);
+            this.btEditAlternativa.TabIndex = 27;
+            this.btEditAlternativa.UseVisualStyleBackColor = true;
+            this.btEditAlternativa.Click += new System.EventHandler(this.btEditAlternativa_Click);
             // 
             // btAddAlt
             // 
@@ -710,6 +721,7 @@
             this.btCancelar.Size = new System.Drawing.Size(75, 38);
             this.btCancelar.TabIndex = 7;
             this.btCancelar.UseVisualStyleBackColor = true;
+            this.btCancelar.Click += new System.EventHandler(this.btCancelar_Click);
             // 
             // FormAvaliacao
             // 
@@ -719,6 +731,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormAvaliacao";
             this.Text = "Cadastro de avaliação";
+            this.Load += new System.EventHandler(this.FormAvaliacao_Load);
             this.panelLeft.ResumeLayout(false);
             this.panelLeft.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picIcone)).EndInit();
@@ -759,8 +772,6 @@
         private System.Windows.Forms.ToolStrip barraInicial;
         private System.Windows.Forms.ToolStripButton btNovo;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-        private System.Windows.Forms.ToolStripLabel labTermo;
-        private System.Windows.Forms.ToolStripTextBox txtTermo;
         private System.Windows.Forms.ToolStripLabel toolStripLabel1;
         private System.Windows.Forms.ToolStripComboBox cobBusca;
         private System.Windows.Forms.ToolStripButton btBusca;
@@ -810,5 +821,7 @@
         private System.Windows.Forms.ComboBox cobClassificacao;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button btAddPer;
+        private System.Windows.Forms.Button BtEditPerg;
+        private System.Windows.Forms.Button btEditAlternativa;
     }
 }

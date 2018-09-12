@@ -18,6 +18,7 @@ namespace AvaliaCore.Entidade
         private List<Alternativa> _alternativas = new List<Alternativa>();
         private TipoPergunta tipo;
         private String _descricaoConceitual;
+        private Int64 _avaliacao_Id;
 
         public List<Alternativa> Alternativas
         {
@@ -38,8 +39,18 @@ namespace AvaliaCore.Entidade
         }
         [ForeignKey("IdClassificacao")]
         public virtual Classificacao Classificacao { get; set; }
-        
 
+        public long Avaliacao_Id
+        {
+            get => _avaliacao_Id;
+            set => _avaliacao_Id = value;
+        }
+        [ForeignKey("Avaliacao_Id")]
+        public virtual Avaliacao Avaliacao
+        {
+            get;
+            set;
+        }
         public long Id
         {
             get { return _id; }
@@ -73,6 +84,11 @@ namespace AvaliaCore.Entidade
             {
                 _descricaoConceitual = value;
             } 
+        }
+
+        public override string ToString()
+        {
+            return Questao.ToUpper();
         }
     }
 

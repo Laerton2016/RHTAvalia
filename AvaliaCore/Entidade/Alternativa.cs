@@ -43,5 +43,10 @@ namespace AvaliaCore.Entidade
 
         [ForeignKey("IdPergunta")]
         public virtual Pergunta Pergunta { get; set; }
+
+        public override string ToString()
+        {
+            return Descricao.ToUpper();
+        }
     }
 }

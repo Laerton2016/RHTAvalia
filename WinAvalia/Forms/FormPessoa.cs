@@ -21,6 +21,7 @@ using AvaliaCore.Service;
 using FormModql;
 using SchequesWin.Forms;
 using WinAvalia.Class;
+using System.Resources;
 
 namespace WinAvalia
 {
@@ -42,6 +43,7 @@ namespace WinAvalia
             CobFuncao.Items.Add(TipoFuncao.GERENTE);
             CobFuncao.Items.Add(TipoFuncao.OPERARIO);
             CobFuncao.Items.Add(TipoFuncao.SUBGERENTE);
+            CobFuncao.Items.Add(TipoFuncao.ADMINISTRADOR);
             cobBusca.Items.Clear();
             cobBusca.Items.Add(TipoBusca.ID);
             cobBusca.Items.Add(TipoBusca.NOME);
@@ -128,6 +130,8 @@ namespace WinAvalia
         {
             txtNome.Text = _pessoa.Nome;
             CobFuncao.SelectedItem = _pessoa.TFuncao;
+            txtLogin.Text = _pessoa.Login;
+            txtSenha.Text = _pessoa.Senha;
             labId.Text = _pessoa.Id.ToString();
         }
 
@@ -136,6 +140,8 @@ namespace WinAvalia
             txtNome.Text = "";
             CobFuncao.SelectedItem = null;
             labId.Text = "";
+            txtLogin.Text = "";
+            txtSenha.Text = "";
         }
 
         private void btSalvar_Click(object sender, EventArgs e)
@@ -149,8 +155,25 @@ namespace WinAvalia
                     return;
                     
                 }
+
+                if (txtLogin.Text.Trim().Equals("") || ValidaDados.ExistCaracterEspeciais(txtLogin.Text))
+                {
+                    MessageBox.Show("Login inválido", Text, MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                    txtLogin.Focus();
+                    return;
+                }
+
+                if (txtSenha.Text.Trim().Equals(""))
+                {
+                    MessageBox.Show("Senha inválida", Text, MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                    txtSenha.Focus();
+                    return;
+                }
+
                 _pessoa.Nome = txtNome.Text;
                 _pessoa.TFuncao = (TipoFuncao) CobFuncao.SelectedItem;
+                _pessoa.Login = txtLogin.Text;
+                _pessoa.Senha = txtSenha.Text;
                 _ps.Save(_pessoa);
                 MessageBox.Show("Dados salvos com suscesso!!", Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Reseta();
@@ -208,6 +231,25 @@ namespace WinAvalia
             {
                 MessageBox.Show(exception.Message, Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void txtLogin_Leave(object sender, EventArgs e)
+        {
+            if (txtLogin.Text.Trim().Equals(""))
+            {
+                MessageBox.Show("Login deve ser preenchido.", Text
+                    , MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                txtLogin.Focus();
+                return;
+            }
+
+            if (_pessoa.Id == 0 && !_ps.LoginValido(txtLogin.Text) )
+            {
+                MessageBox.Show("Login indisponível.", Text
+                    , MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                txtLogin.Focus();
+            }
+            
         }
     }
 }

@@ -44,7 +44,6 @@ namespace AvaliaCore.Persiste
                 catch (Exception e)
                 {
                     transaction.Rollback();
-                    throw;
                 }
             }
         }
@@ -111,6 +110,23 @@ namespace AvaliaCore.Persiste
             List<Pessoa> pessoas = _context.Pessoas.SqlQuery(sql).ToList();
             return pessoas;
         }
-        
+
+        /// <summary>
+        /// Busca por todas as avalaições ainda não inicializada
+        /// </summary>
+        /// <returns></returns>
+        public List<Avaliacao> FindAvaliacoesIniciadas()
+        {
+            String SQL = "select avaliacao.* from avaliacao left join (select pergunta.*, resposta.IdPergunta from pergunta left join resposta on resposta.IdPergunta = pergunta.Id ) as p "+
+            "on avaliacao.id = p.Avaliacao_Id where p.IdPergunta is null; ";
+            return _context.Avaliacaos.SqlQuery(SQL).ToList();
+        }
+
+        public List<Avaliacao> FindAvaliacoesFinalizadas()
+        {
+            String SQL = "select avaliacao.* from avaliacao left join (select pergunta.*, resposta.IdPergunta from pergunta left join resposta on resposta.IdPergunta = pergunta.Id ) as p "+
+            "on avaliacao.id = p.Avaliacao_Id where p.IdPergunta is not null; "; 
+            return _context.Avaliacaos.SqlQuery(SQL).ToList();
+        }
     }
 }

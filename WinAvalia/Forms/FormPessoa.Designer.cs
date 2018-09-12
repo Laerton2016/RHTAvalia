@@ -58,6 +58,10 @@ namespace WinAvalia
             this.btBusca = new System.Windows.Forms.ToolStripButton();
             this.label3 = new System.Windows.Forms.Label();
             this.labId = new System.Windows.Forms.Label();
+            this.txtLogin = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtSenha = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.panelLeft.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picIcone)).BeginInit();
             this.panelTop.SuspendLayout();
@@ -90,6 +94,10 @@ namespace WinAvalia
             // 
             // panelContainer
             // 
+            this.panelContainer.Controls.Add(this.txtSenha);
+            this.panelContainer.Controls.Add(this.label5);
+            this.panelContainer.Controls.Add(this.txtLogin);
+            this.panelContainer.Controls.Add(this.label4);
             this.panelContainer.Controls.Add(this.labId);
             this.panelContainer.Controls.Add(this.label3);
             this.panelContainer.Controls.Add(this.btSalvar);
@@ -103,10 +111,10 @@ namespace WinAvalia
             // btSalvar
             // 
             this.btSalvar.Image = global::WinAvalia.Properties.Resources.salvar_24;
-            this.btSalvar.Location = new System.Drawing.Point(519, 184);
+            this.btSalvar.Location = new System.Drawing.Point(519, 192);
             this.btSalvar.Name = "btSalvar";
             this.btSalvar.Size = new System.Drawing.Size(75, 37);
-            this.btSalvar.TabIndex = 11;
+            this.btSalvar.TabIndex = 4;
             this.btSalvar.UseVisualStyleBackColor = true;
             this.btSalvar.Click += new System.EventHandler(this.btSalvar_Click);
             // 
@@ -126,7 +134,7 @@ namespace WinAvalia
             this.txtNome.Location = new System.Drawing.Point(136, 51);
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(458, 29);
-            this.txtNome.TabIndex = 9;
+            this.txtNome.TabIndex = 0;
             // 
             // CobFuncao
             // 
@@ -134,7 +142,7 @@ namespace WinAvalia
             this.CobFuncao.Location = new System.Drawing.Point(136, 89);
             this.CobFuncao.Name = "CobFuncao";
             this.CobFuncao.Size = new System.Drawing.Size(258, 29);
-            this.CobFuncao.TabIndex = 8;
+            this.CobFuncao.TabIndex = 1;
             // 
             // label2
             // 
@@ -287,6 +295,40 @@ namespace WinAvalia
             this.labId.Size = new System.Drawing.Size(0, 21);
             this.labId.TabIndex = 13;
             // 
+            // txtLogin
+            // 
+            this.txtLogin.Location = new System.Drawing.Point(136, 122);
+            this.txtLogin.Name = "txtLogin";
+            this.txtLogin.Size = new System.Drawing.Size(258, 29);
+            this.txtLogin.TabIndex = 2;
+            this.txtLogin.Leave += new System.EventHandler(this.txtLogin_Leave);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(61, 125);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(53, 21);
+            this.label4.TabIndex = 14;
+            this.label4.Text = "Login:";
+            // 
+            // txtSenha
+            // 
+            this.txtSenha.Location = new System.Drawing.Point(136, 157);
+            this.txtSenha.Name = "txtSenha";
+            this.txtSenha.PasswordChar = '*';
+            this.txtSenha.Size = new System.Drawing.Size(258, 29);
+            this.txtSenha.TabIndex = 3;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(61, 160);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(61, 21);
+            this.label5.TabIndex = 16;
+            this.label5.Text = "Senha:";
+            // 
             // FormPessoa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
@@ -337,6 +379,10 @@ namespace WinAvalia
         private System.Windows.Forms.ToolStripButton btBusca;
         private System.Windows.Forms.Label labId;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox txtSenha;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox txtLogin;
+        private System.Windows.Forms.Label label4;
     }
 }
 

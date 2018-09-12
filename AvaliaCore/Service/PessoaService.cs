@@ -59,6 +59,10 @@ namespace AvaliaCore.Service
             return _rp.FindByName(nome);
         }
 
+        public bool LoginValido(String login)
+        {
+            return _rp.FindByLogin(login) == null;
+        }
 
     }
 }

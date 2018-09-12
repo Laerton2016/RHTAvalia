@@ -118,23 +118,11 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="Excluir_24" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Excluir_24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="setaDireita" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\setaDireita.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="pessoas" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\pessoas.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="salvar-24" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\salvar-24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="setaDireitaAll" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\setaDireitaAll.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="SetaEsquerda" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\SetaEsquerda.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="mais" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\mais.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="perguntas" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\perguntas.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -142,16 +130,37 @@
   <data name="cliente-24" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\cliente-24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Excluir_24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Excluir_24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="SetaEsquerdaAll" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\SetaEsquerdaAll.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="setaDireitaAll" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\setaDireitaAll.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="salvar-24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\salvar-24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Ok_24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Ok_24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Avalia" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Avalia.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="mais" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\mais.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="SetaEsquerda" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SetaEsquerda.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Cancela_24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Cancela_24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="classificacao_24" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\classificacao_24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="setaDireita" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\setaDireita.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Editar_24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Editar_24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

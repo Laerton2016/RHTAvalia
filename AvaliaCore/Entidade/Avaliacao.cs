@@ -19,11 +19,19 @@ namespace AvaliaCore.Entidade
         private ICollection<PessoaAvaliacao> _avaliados;
         private String _descricao;
         private ICollection<Peso> _pesos;
+        private DateTime _data;
         public Avaliacao()
         {
             _perguntas = new HashSet<Pergunta>();
             _avaliados = new HashSet<PessoaAvaliacao>();
             _pesos = new HashSet<Peso>();
+            _data = DateTime.Now;
+        }
+
+        public DateTime Data
+        {
+            get => _data;
+            set => _data = value;
         }
 
         public string Descricao
@@ -70,7 +78,10 @@ namespace AvaliaCore.Entidade
 
         public void AddAvaliado(Pessoa p)
         {
-            _avaliados.Add(new PessoaAvaliacao() { Pessoa =  p, Avaliacao = this});
+            
+            _avaliados.Add(new PessoaAvaliacao() { Pessoa = p, Avaliacao = this });
+            
+            
         }
         
         public void RemAvaliado(Pessoa p)
@@ -103,6 +114,11 @@ namespace AvaliaCore.Entidade
         {
             Peso peso = _pesos.Where(p => p.IdClassificacao == classificacao.Id).First();
             if(peso != null) _pesos.Remove(peso);
+        }
+
+        public override string ToString()
+        {
+            return _data.ToShortDateString() + " - " +  Descricao.ToUpper() ;
         }
     }
 }

@@ -94,6 +94,9 @@ namespace WinAvalia.Form
         {
             LimpaCampos();
             panelDados.Visible = true;
+            panelPerguntas.Visible = false;
+            panelPessoas.Visible = false;
+            panelPesos.Visible = false;
             _avaliacao = new Avaliacao();
         }
 
@@ -105,14 +108,17 @@ namespace WinAvalia.Form
             lbAvalia.DataSource = null;
             lbPerguntas.DataSource = null;
             lbAlternativas.DataSource = null;
-           
-
+            panelBoteos.Enabled = false;
+            panelPerguntas.Enabled =  true;
+            panelPessoas.Enabled = true;
+            panelPesos.Enabled = true;
         }
 
       
 
         private void btSalvar_Click(object sender, EventArgs e)
         {
+
             if (rtxtDescricao.Text.Trim().Equals(""))
             {
                 MessageBox.Show("Precisa ser informado uma descrição sobre esta avaliação.", Text, MessageBoxButtons.OK,
@@ -128,6 +134,32 @@ namespace WinAvalia.Form
                 cobPessoas.Focus();
                 return;
             }
+
+            if (_avaliacao != null && _avaliacao.Id != 0)
+            {
+                var resp = MessageBox.Show("Deseja revisar as informações da avaliação?", Text, MessageBoxButtons.YesNoCancel,
+                    MessageBoxIcon.Question);
+                if (resp == DialogResult.No)
+                {
+                    _avaliacao.Avaliador = (Pessoa)cobPessoas.SelectedItem;
+                    _avaliacao.Descricao = rtxtDescricao.Text;
+                    try
+                    {
+                        _service.Save(_avaliacao);
+                        MessageBox.Show("Dados salvos com suceso!", Text, MessageBoxButtons.OK,
+                            MessageBoxIcon.Information);
+                        panelDados.Visible = false;
+                        return;
+                    }
+                    catch (Exception exception)
+                    {
+                        MessageBox.Show(exception.Message, Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+
+                }
+                else if (resp == DialogResult.Cancel) {return; }
+            }
+            
             _avaliacao.Avaliador = (Pessoa) cobPessoas.SelectedItem;
             _avaliacao.Descricao = rtxtDescricao.Text;
             try
@@ -176,12 +208,49 @@ namespace WinAvalia.Form
                 }
             }
 
+            if (_avaliacao.Id != 0)
+            {
+                var resp = MessageBox.Show(
+                    "Ao acionar a alteraçõa de pesos, o sistema discosiderará os pesos já cadastrados para que seja informado novos valores. Deseja contiunar com alteração dos pesos?",
+                    Text, MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (resp == DialogResult.Yes)
+                {
+                    MessageBox.Show("Os valores dos pesos foram zerados!", Text, MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                }
+                else
+                {
+                    return;
+                }
+            }
             dgvPesos.DataSource = pesos;
             // Diagramando o data grid
+            dgvPesos.Columns[0].Visible = false;
+            dgvPesos.Columns[1].Visible = false;
+            dgvPesos.Columns[2].Visible = false;
+            dgvPesos.Columns[3].Visible = true;
+            dgvPesos.Columns[4].Visible = false;
+            dgvPesos.Columns[5].Visible = false;
+            dgvPesos.Columns[6].Visible = true;
+
+            dgvPesos.Columns[3].Width = 90;
+            dgvPesos.Columns[6].Width = 200;
+            dgvPesos.Columns[6].ReadOnly = true;//Deixa somente como leitura o campo
+            
         }
+
+        
 
         private void btSalvaPesos_Click(object sender, EventArgs e)
         {
+            _avaliacao.Pesos = new List<Peso>();
+            foreach (DataGridViewRow row in dgvPesos.Rows)
+            {
+                double d = (Double) row.Cells[3].Value;
+                Classificacao c = (Classificacao) row.Cells[5].Value;
+                _avaliacao.AddPeso(c,d);
+            }
+            _service.Save(_avaliacao);
             panelPesos.Visible = false;
         }
 
@@ -278,6 +347,8 @@ namespace WinAvalia.Form
 
             if ((TipoPergunta) cobTipo.SelectedItem == TipoPergunta.FORCADA)
             {
+                lbAlternativas.DataSource = null;
+                lbAlternativas.Items.Clear();
                 gbAlternativas.Visible = true;
                 txtAlt.Text = "";
                 chPositivo.Checked = false;
@@ -322,6 +393,8 @@ namespace WinAvalia.Form
                 
             };
             lbAlternativas.Items.Add(alternativa);
+            txtAlt.Text = "";
+            chPositivo.Checked = false;
         }
 
         private void btSaveAlt_Click(object sender, EventArgs e)
@@ -335,16 +408,18 @@ namespace WinAvalia.Form
                 return;
             }
 
-            _pergunta.Alternativas = (List<Alternativa>) lbAlternativas.Items.ToList<Alternativa>();
+            
+            _pergunta.Alternativas = new List<Alternativa>();
+            lbAlternativas.Items.ToList<Alternativa>().ForEach(a => _pergunta.AddAlternativa(a));
             gbAlternativas.Visible = false;
             AddPergunta();
         }
 
         private bool VerificaAlternativas()
         {
-            bool resp = lbAlternativas.Items.ToList<Alternativa>().Where(a => a.Positiva == true).Count() >=1 &
-                    lbAlternativas.Items.ToList<Alternativa>().Where(a => a.Positiva == false).Count() >=1;
-            return resp;
+            bool positiva = lbAlternativas.Items.ToList<Alternativa>().Where(a => a.Positiva == true).Count() >= 1;
+            bool negativa = lbAlternativas.Items.ToList<Alternativa>().Where(a => a.Positiva == false).Count() >=1;
+            return (positiva & negativa);
         }
 
         private void btSalvarPerguntas_Click(object sender, EventArgs e)
@@ -357,7 +432,8 @@ namespace WinAvalia.Form
                 txtPergunta.Focus();
                 return;
             }
-            _avaliacao.Perguntas = (ICollection<Pergunta>) lbPerguntas.Items.ToList<Pergunta>();
+            _avaliacao.Perguntas = new List<Pergunta>();
+            lbPerguntas.Items.ToList<Pergunta>().ForEach(p=> _avaliacao.AddPergunta(p));
             _service.Save(_avaliacao);
             panelPerguntas.Visible = false;
             btPesos_Click(sender, e);
@@ -373,7 +449,12 @@ namespace WinAvalia.Form
                 dgvPesos.Focus();
             }
 
-            _avaliacao.Pesos = (ICollection<Peso>) dgvPesos.Rows.ToList<Peso>();
+            _avaliacao.Pesos = new List<Peso>();
+            foreach (DataGridViewRow row in dgvPesos.Rows)
+            {
+                _avaliacao.AddPeso((Classificacao)row.Cells[5].Value, (Double) row.Cells[3].Value);
+            }
+            _service.Save(_avaliacao);
             MessageBox.Show("Cadastro da avaliação concluido com sucesso!", Text, MessageBoxButtons.OK,
                 MessageBoxIcon.Information);
             panelPesos.Visible = false;
@@ -384,12 +465,135 @@ namespace WinAvalia.Form
         private bool ValidandoPesos()
         {
             double t = 0;
-            foreach (Peso peso in dgvPesos.Rows.ToList<Peso>())
+            foreach (DataGridViewRow peso in dgvPesos.Rows)
             {
-                t += peso.PesoAvaliativo;
+                t += (Double) peso.Cells[3].Value;
             }
-
             return t == 100.0d;
         }
+
+        private void btCancelar_Click(object sender, EventArgs e)
+        {
+            var resposta = MessageBox.Show("Deseja realmente sair do cadastro da avaliação atual?", Text,
+                MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (resposta == DialogResult.No)
+            {
+                this.panelDados.Visible = false;
+                panelPesos.Visible = false;
+                panelPessoas.Visible = false;
+                panelPerguntas.Visible = false;
+                rtxtDescricao.Text = "";
+                cobPessoas.SelectedItem = null;
+                panelBoteos.Enabled = false;
+            
+            }
+        }
+
+        private void FormAvaliacao_Load(object sender, EventArgs e)
+        {
+            cobBusca.Items.Clear();
+            cobResultado.ComboBox.DataSource = null;
+            cobBusca.Items.Add(TipoBuscaAvaliacao.ABERTAS);
+            cobBusca.Items.Add(TipoBuscaAvaliacao.FECHADAS);
+        }
+
+        private void btBusca_Click(object sender, EventArgs e)
+        {
+            if (cobBusca.ComboBox.SelectedItem == null)
+            {
+                MessageBox.Show("Selecione um tipo de busca.", Text, MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                cobBusca.Focus();
+                return;
+            }
+
+            if ((TipoBuscaAvaliacao) cobBusca.SelectedItem == TipoBuscaAvaliacao.ABERTAS)
+            {
+                cobResultado.ComboBox.DataSource = _service.FindAllAvaliacaosAbertas();
+                panelPerguntas.Enabled = true;
+                panelPessoas.Enabled = true;
+                panelPesos.Enabled = true;
+            }
+            else
+            {
+                cobResultado.ComboBox.DataSource = _service.FindAllAvaliacaoFechadas();
+                panelPerguntas.Enabled = false;
+                panelPessoas.Enabled = false;
+                panelPesos.Enabled = false;
+            }
+
+            barraBusca.Visible = true;
+        }
+
+        private void BtEditPerg_Click(object sender, EventArgs e)
+        {
+            if (lbPerguntas.SelectedItem == null)
+            {
+                MessageBox.Show("Para editar precisa primeiro selecionar uma das perguntas cadastradas.", Text,
+                    MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                lbPerguntas.Focus();
+                return;
+            }
+
+            _pergunta = (Pergunta) lbPerguntas.SelectedItem;
+            PreencheCamposPergunta();
+            lbPerguntas.Items.Remove(_pergunta);
+        }
+
+        private void PreencheCamposPergunta()
+        {
+            txtPergunta.Text = _pergunta.Questao;
+            txtObs.Text = _pergunta.DescricaoConceitual;
+            cobTipo.SelectedItem = _pergunta.Tipo;
+            cobClassificacao.SelectedItem = _pergunta.Classificacao;
+            txtPergunta.Focus();
+        }
+
+        private void btEditAlternativa_Click(object sender, EventArgs e)
+        {
+            if (lbAlternativas.SelectedItem == null)
+            {
+                MessageBox.Show("Selecione uma das alternativas para editar", Text, MessageBoxButtons.OK,
+                    MessageBoxIcon.Asterisk);
+                lbAlternativas.Focus();
+                return;
+            }
+
+            Alternativa alt = (Alternativa) lbAlternativas.SelectedItem;
+            lbAlternativas.Items.Remove(alt);
+            txtAlt.Text = alt.Descricao;
+            chPositivo.Checked = alt.Positiva;
+            txtAlt.Focus();
+        }
+
+        private void btEditar_Click(object sender, EventArgs e)
+        {
+            if (cobResultado.SelectedItem == null)
+            {
+                MessageBox.Show("Selecione um dos resultados para poder abrir a edição.", Text, MessageBoxButtons.OK,
+                    MessageBoxIcon.Asterisk);
+                cobResultado.Focus();
+                return;
+            }
+
+            _avaliacao = (Avaliacao) cobResultado.SelectedItem;
+            PreecherCamposAvaliacao();
+            panelDados.Visible = true;
+            panelPerguntas.Visible = false;
+            panelPessoas.Visible = false;
+            panelPesos.Visible = false;
+            rtxtDescricao.Focus();
+        }
+
+        private void PreecherCamposAvaliacao()
+        {
+            rtxtDescricao.Text = _avaliacao.Descricao;
+            cobPessoas.SelectedItem = _avaliacao.Avaliador;
+            panelBoteos.Enabled = true;
+        }
+    }
+
+    public enum TipoBuscaAvaliacao
+    {
+        ABERTAS= 0,FECHADAS = 1
     }
 }

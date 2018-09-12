@@ -106,10 +106,34 @@ namespace AvaliaCore.Persiste
         public List<Pessoa> FindPessoasNaoAvaliadaByIdAvaliacao(long idAvaliacao, long idAvaliador)
         {
             String SQL = String.Format("select pessoa.* from pessoa left join " +
-             "(select pessoa.* from pessoa join pessoaavaliacao on pessoa.id = pessoaavaliacao.idpessoa where pessoaavaliacao.idavaliacao = {0}) as p1 " +
-             " on p1.id = pessoa.id where p1.id is null and pessoa.id != {1}; ",
-            idAvaliacao, idAvaliador);
+             "(select pessoa.* from pessoa join pessoaavaliacao on pessoa.id = pessoaavaliacao.idpessoa where pessoaavaliacao.idavaliacao = {0} ) as p1 " +
+             " on p1.id = pessoa.id where p1.id is null and pessoa.id != {1} and pessoa.TFuncao != {2}; ",
+            idAvaliacao, idAvaliador,(int) TipoFuncao.ADMINISTRADOR);
             return this._context.Pessoas.SqlQuery(SQL).ToList();
+        }
+        /// <summary>
+        /// Busca por uma pessoa apartir do login e senha repassados como paramentros
+        /// </summary>
+        /// <param name="login"></param>
+        /// <param name="senha"></param>
+        /// <returns></returns>
+        public Pessoa FindByLoginSenha(String login, String senha)
+        {
+            String SQL = String.Format("Select * from pessoa where login ={0} and senha ={1}", login, senha);
+            var retorno = _context.Pessoas.SqlQuery(SQL);
+            return (retorno == null) ? null : retorno.First();
+        }
+
+        /// <summary>
+        /// Busca por uma pessoa pelo login desta
+        /// </summary>
+        /// <param name="login"></param>
+        /// <returns></returns>
+        public Pessoa FindByLogin(string login)
+        {
+            String SQL = String.Format("Select * from pessoa where login ='{0}';", login);
+            var pessoas = _context.Pessoas.SqlQuery(SQL).ToList();
+            return (pessoas.Count == 0) ? null : pessoas.First();
         }
     }
 }

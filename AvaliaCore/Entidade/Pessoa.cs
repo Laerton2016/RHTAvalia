@@ -19,10 +19,25 @@ namespace AvaliaCore.Entidade
         private String _nome;
         private TipoPessoa _tipo;
         private TipoFuncao _tFuncao;
+        private String _login;
+        private String _senha;
+
         public long Id
         {
             get { return _id; }
             set { _id = value; }
+        }
+        [Index("Index_login", IsUnique = true), MaxLength(50)]
+        public string Login
+        {
+            get => _login;
+            set => _login = value;
+        }
+
+        public string Senha
+        {
+            get => _senha;
+            set => _senha = value;
         }
 
         public TipoFuncao TFuncao
@@ -57,6 +72,7 @@ namespace AvaliaCore.Entidade
 
     public enum TipoFuncao
     {
-        GERENTE, OPERARIO, SUBGERENTE
+        GERENTE= 0, OPERARIO=1, SUBGERENTE=2,
+        ADMINISTRADOR = 3
     }
 }

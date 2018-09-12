@@ -73,6 +73,16 @@ namespace WinAvalia.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Cancela_24 {
+            get {
+                object obj = ResourceManager.GetObject("Cancela_24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap classificacao_24 {
             get {
                 object obj = ResourceManager.GetObject("classificacao_24", resourceCulture);
@@ -93,6 +103,16 @@ namespace WinAvalia.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Editar_24 {
+            get {
+                object obj = ResourceManager.GetObject("Editar_24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Excluir_24 {
             get {
                 object obj = ResourceManager.GetObject("Excluir_24", resourceCulture);
@@ -106,6 +126,16 @@ namespace WinAvalia.Properties {
         internal static System.Drawing.Bitmap mais {
             get {
                 object obj = ResourceManager.GetObject("mais", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Ok_24 {
+            get {
+                object obj = ResourceManager.GetObject("Ok_24", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
