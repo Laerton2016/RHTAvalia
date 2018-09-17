@@ -77,5 +77,55 @@ namespace AvaliaCore.Service
         {
             return _ra.FindAvaliacoesFinalizadas();
         }
+
+        public List<Avaliacao> AvaliacaoesByPessoaAbertas(Int64 id)
+        {
+            return _ra.FindAvaliacoesIniciadasByPessoa(id);
+        }
+
+        public List<Avaliacao> AvaliacoesByPessoaFechada(Int64 id)
+        {
+            return _ra.FindAvaliacoesFinalizadaByPessoa(id);
+        }
+
+
+        public List<Peso> GeraResultados(Avaliacao avaliacao, Int64 _idAvaliado = 0)
+        {
+            avaliacao.Pesos.ToList().ForEach(p => p.ResultaPeso = 0); //Zerando resultados
+
+            foreach (Pergunta pergunta in avaliacao.Perguntas)
+            {
+                //Buscado qual o valor dos resultados da classificação atual da pergunta
+                double valor = avaliacao.Pesos.First(p => p.Classificacao.Id == pergunta.IdClassificacao)
+                    .ResultaPeso;
+                if (pergunta.Tipo == TipoPergunta.GRAFICO)
+                    if (_idAvaliado != 0)
+                    {
+                        
+                        valor += pergunta.Respostas.First(r => r.IdPessoa == _idAvaliado).Nota;
+                    }
+                    else
+                    {
+                        pergunta.Respostas.ForEach(r => valor += r.Nota);
+                    }
+                else
+                {
+                    if (_idAvaliado != 0)
+                    {
+                        Alternativa a = pergunta.Respostas.First(r => r.IdPessoa == _idAvaliado).Selecionada;
+                        valor += (a.Positiva) ? 10 : 1;
+                        
+                    }
+                    else
+                    {
+                        pergunta.Respostas.ForEach(r => valor += (r.Selecionada.Positiva) ? 10 : 1);
+                    }
+                }
+                //Repassando a soma dos valores
+                avaliacao.Pesos.First(p => p.Classificacao.Id == pergunta.IdClassificacao)
+                    .ResultaPeso = valor;
+            }
+            return avaliacao.Pesos.ToList();
+        }
     }
 }

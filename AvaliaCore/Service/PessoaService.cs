@@ -63,6 +63,16 @@ namespace AvaliaCore.Service
         {
             return _rp.FindByLogin(login) == null;
         }
+        /// <summary>
+        /// Busca por uma pessa pelo login e senha repassado como paramentro
+        /// </summary>
+        /// <param name="login"></param>
+        /// <param name="senha"></param>
+        /// <returns></returns>
+        public Pessoa FindByLoginAndSenha(String login, String senha)
+        {
+            return _rp.FindByLoginSenha(login, senha);
+        }
 
     }
 }

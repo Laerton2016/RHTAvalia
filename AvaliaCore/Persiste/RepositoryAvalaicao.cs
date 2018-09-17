@@ -118,14 +118,33 @@ namespace AvaliaCore.Persiste
         public List<Avaliacao> FindAvaliacoesIniciadas()
         {
             String SQL = "select avaliacao.* from avaliacao left join (select pergunta.*, resposta.IdPergunta from pergunta left join resposta on resposta.IdPergunta = pergunta.Id ) as p "+
-            "on avaliacao.id = p.Avaliacao_Id where p.IdPergunta is null; ";
+            "on avaliacao.id = p.Avaliacao_Id where p.IdPergunta is null group by avaliacao.Id; ";
             return _context.Avaliacaos.SqlQuery(SQL).ToList();
         }
 
         public List<Avaliacao> FindAvaliacoesFinalizadas()
         {
             String SQL = "select avaliacao.* from avaliacao left join (select pergunta.*, resposta.IdPergunta from pergunta left join resposta on resposta.IdPergunta = pergunta.Id ) as p "+
-            "on avaliacao.id = p.Avaliacao_Id where p.IdPergunta is not null; "; 
+            "on avaliacao.id = p.Avaliacao_Id where p.IdPergunta is not null group by avaliacao.Id; "; 
+            return _context.Avaliacaos.SqlQuery(SQL).ToList();
+        }
+
+        /// <summary>
+        /// Retorna todas as avaliações não finalizadas de um usuário
+        /// </summary>
+        /// <param name="idPessoa"></param>
+        /// <returns></returns>
+        public List<Avaliacao> FindAvaliacoesIniciadasByPessoa(Int64 idPessoa)
+        {
+            String SQL = "select avaliacao.* from avaliacao left join (select pergunta.*, resposta.IdPergunta from pergunta left join resposta on resposta.IdPergunta = pergunta.Id ) as p " +
+                         "on avaliacao.id = p.Avaliacao_Id where p.IdPergunta is null and avaliacao.idAvaliador = "+ idPessoa + " group by avaliacao.Id;";
+            return _context.Avaliacaos.SqlQuery(SQL).ToList();
+        }
+
+        public List<Avaliacao> FindAvaliacoesFinalizadaByPessoa(Int64 idPessoa)
+        {
+            String SQL = "select avaliacao.* from avaliacao left join (select pergunta.*, resposta.IdPergunta from pergunta left join resposta on resposta.IdPergunta = pergunta.Id ) as p " +
+                         "on avaliacao.id = p.Avaliacao_Id where p.IdPergunta is not null and avaliacao.idAvaliador = " + idPessoa + "group by avaliacao.Id;";
             return _context.Avaliacaos.SqlQuery(SQL).ToList();
         }
     }

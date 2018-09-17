@@ -9,6 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
+using WinAvalia.Forms;
 
 namespace WinAvalia
 {
@@ -23,7 +24,7 @@ namespace WinAvalia
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            Application.Run(new Avalia());
+            Application.Run(new FormGrafico());
         }
     }
 }

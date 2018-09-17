@@ -14,8 +14,8 @@ namespace AvaliaCore.Entidade
         private Int64 _idPergunta;
         private Int64 _idPessoa;
         private int _nota;
-        private Alternativa _selecionada;
-
+        private Int64? _idAlternativa;
+        
         public long Id
         {
             get { return _id; }
@@ -40,10 +40,17 @@ namespace AvaliaCore.Entidade
             set { _nota = value; }
         }
 
-        public Alternativa Selecionada
+        public long? IdAlternativa
         {
-            get { return _selecionada; }
-            set { _selecionada = value; }
+            get => _idAlternativa;
+            set => _idAlternativa = value;
+        }
+
+        [ForeignKey("IdAlternativa")]
+        public virtual Alternativa Selecionada
+        {
+            get ;
+            set ;
         }
 
         [ForeignKey("IdPergunta")]

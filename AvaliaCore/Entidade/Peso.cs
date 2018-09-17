@@ -16,6 +16,7 @@ namespace AvaliaCore.Entidade
         private Int64 _idAvaliacao;
         private Int64 _idClassificacao;
         private Double _pesoAvaliativo;
+        private Double _resultaPeso = 0;
 
         public long Id
         {
@@ -47,5 +48,16 @@ namespace AvaliaCore.Entidade
 
         [NotMapped]
         public string DescricaoClassificacao => Classificacao.Descricao;
+
+        [NotMapped]
+        public double ResultaPeso
+        {
+            get => _resultaPeso;
+            set => _resultaPeso = value;
+        }
+
+        [NotMapped]
+        public double ResultaAplicaPeso => _resultaPeso * _pesoAvaliativo;
+
     }
 }

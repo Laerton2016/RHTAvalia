@@ -54,6 +54,8 @@
     <Reference Include="NumericBox">
       <HintPath>..\..\..\..\projetos\scheques\NumericBox.dll</HintPath>
     </Reference>
+    <Reference Include="Syncfusion.Chart.Base, Version=16.2450.0.41, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89" />
+    <Reference Include="Syncfusion.Chart.Windows, Version=16.2450.0.41, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89" />
     <Reference Include="Syncfusion.Core.WinForms, Version=16.2450.0.41, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89" />
     <Reference Include="Syncfusion.DataSource.WinForms, Version=16.2450.0.41, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89" />
     <Reference Include="Syncfusion.Grid.Base, Version=16.2451.0.41, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL" />
@@ -69,6 +71,7 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Design" />
     <Reference Include="System.Runtime.Serialization.Formatters.Soap" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -95,6 +98,12 @@
     <Compile Include="Forms\FormClassificacao.Designer.cs">
       <DependentUpon>FormClassificacao.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FormGrafico.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormGrafico.Designer.cs">
+      <DependentUpon>FormGrafico.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FormPessoa.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -107,6 +116,18 @@
     <Compile Include="Avalia.Designer.cs">
       <DependentUpon>Avalia.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FormRespostas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormRespostas.Designer.cs">
+      <DependentUpon>FormRespostas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Avalia.resx">
@@ -118,8 +139,17 @@
     <EmbeddedResource Include="Forms\FormClassificacao.resx">
       <DependentUpon>FormClassificacao.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormGrafico.resx">
+      <DependentUpon>FormGrafico.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormPessoa.resx">
       <DependentUpon>FormPessoa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormRespostas.resx">
+      <DependentUpon>FormRespostas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -193,6 +223,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Editar_24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Login-40.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Logout.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Resultado.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties\DataSources\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sincroniza-24.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

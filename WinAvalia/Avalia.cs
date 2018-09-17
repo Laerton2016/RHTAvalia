@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 
 using System.Windows.Forms;
 using AvaliaCore.Context;
+using AvaliaCore.Entidade;
+using SchequesWin.Forms;
 using WinAvalia.Form;
 using WinAvalia.Forms;
 
@@ -18,10 +20,37 @@ namespace WinAvalia
     {
         private int childFormNumber = 0;
         private RHTContext _context = new RHTContext();
+        private Login _login;
+        private Pessoa _pessoa;
+
+
+        public Login Login
+        {
+            get => _login;
+            set { _login = value; }
+        }
+
+        public Pessoa Pessoa
+        {
+            get => _pessoa;
+            set =>_pessoa = value; 
+        }
+
+        public ToolStripStatusLabel LabUser
+        {
+            get => labUser;
+            set => labUser = value;
+        }
 
         public Avalia()
         {
             InitializeComponent();
+        }
+
+        public RHTContext Context
+        {
+            get => _context;
+            set => _context = value;
         }
 
         private void ShowNewForm(object sender, EventArgs e)
@@ -54,60 +83,6 @@ namespace WinAvalia
             }
         }
 
-        private void ExitToolsStripMenuItem_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void CutToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void CopyToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void PasteToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void ToolBarToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            toolStrip.Visible = toolBarToolStripMenuItem.Checked;
-        }
-
-        private void StatusBarToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            statusStrip.Visible = statusBarToolStripMenuItem.Checked;
-        }
-
-        private void CascadeToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            LayoutMdi(MdiLayout.Cascade);
-        }
-
-        private void TileVerticalToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            LayoutMdi(MdiLayout.TileVertical);
-        }
-
-        private void TileHorizontalToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            LayoutMdi(MdiLayout.TileHorizontal);
-        }
-
-        private void ArrangeIconsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            LayoutMdi(MdiLayout.ArrangeIcons);
-        }
-
-        private void CloseAllToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            foreach (System.Windows.Forms.Form childForm in MdiChildren)
-            {
-                childForm.Close();
-            }
-        }
 
         private void pessoaToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -134,6 +109,41 @@ namespace WinAvalia
             childForm.MdiParent = this;
             childForm.WindowState = FormWindowState.Normal;
             childForm.WindowState = FormWindowState.Maximized;
+        }
+
+        private void Avalia_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            _login.Close();
+        }
+
+        private void BtLogout_Click(object sender, EventArgs e)
+        {
+            _login.Visible = true;
+            _login.LimpaCampos();
+            this.Dispose();
+        }
+
+        private void Avalia_Load(object sender, EventArgs e)
+        {
+            if (_pessoa != null && _pessoa.TFuncao == TipoFuncao.ADMINISTRADOR)
+            {
+                cadastroToolStripMenuItem.Enabled = true;
+            }
+            else
+            {
+                cadastroToolStripMenuItem.Enabled = false;
+            }
+        }
+
+        private void respostasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormRespostas childForm = new FormRespostas(_context);
+            childForm.Avaliador = _pessoa;
+            childForm.Show();
+            childForm.MdiParent = this;
+            childForm.WindowState = FormWindowState.Normal;
+            childForm.WindowState = FormWindowState.Maximized;
+
         }
     }
 }

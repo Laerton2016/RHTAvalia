@@ -123,6 +123,26 @@ namespace WinAvalia.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Login_40 {
+            get {
+                object obj = ResourceManager.GetObject("Login-40", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Logout {
+            get {
+                object obj = ResourceManager.GetObject("Logout", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap mais {
             get {
                 object obj = ResourceManager.GetObject("mais", resourceCulture);
@@ -156,6 +176,16 @@ namespace WinAvalia.Properties {
         internal static System.Drawing.Bitmap pessoas {
             get {
                 object obj = ResourceManager.GetObject("pessoas", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Resultado {
+            get {
+                object obj = ResourceManager.GetObject("Resultado", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -206,6 +236,16 @@ namespace WinAvalia.Properties {
         internal static System.Drawing.Bitmap SetaEsquerdaAll {
             get {
                 object obj = ResourceManager.GetObject("SetaEsquerdaAll", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap sincroniza_24 {
+            get {
+                object obj = ResourceManager.GetObject("sincroniza-24", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

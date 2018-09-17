@@ -19,8 +19,9 @@ namespace AvaliaCore.Entidade
         private TipoPergunta tipo;
         private String _descricaoConceitual;
         private Int64 _avaliacao_Id;
+        private List<Resposta> _respostas;
 
-        public List<Alternativa> Alternativas
+        public virtual List<Alternativa> Alternativas
         {
             get { return _alternativas; }
             set { _alternativas = value; }
@@ -65,6 +66,7 @@ namespace AvaliaCore.Entidade
 
         public void AddAlternativa(Alternativa alternativa)
         {
+            
             _alternativas.Add(alternativa);
         }
 
@@ -89,6 +91,18 @@ namespace AvaliaCore.Entidade
         public override string ToString()
         {
             return Questao.ToUpper();
+        }
+
+        public virtual List<Resposta> Respostas
+        {
+            get => _respostas;
+            set => _respostas = value;
+        }
+
+        public void AddResposta(Resposta resposta)
+        {
+            resposta.Questao = this;
+            Respostas.Add(resposta);
         }
     }
 

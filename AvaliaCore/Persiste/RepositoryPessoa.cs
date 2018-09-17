@@ -119,7 +119,7 @@ namespace AvaliaCore.Persiste
         /// <returns></returns>
         public Pessoa FindByLoginSenha(String login, String senha)
         {
-            String SQL = String.Format("Select * from pessoa where login ={0} and senha ={1}", login, senha);
+            String SQL = String.Format("Select * from pessoa where login ='{0}' and senha ='{1}'", login, senha);
             var retorno = _context.Pessoas.SqlQuery(SQL);
             return (retorno == null) ? null : retorno.First();
         }

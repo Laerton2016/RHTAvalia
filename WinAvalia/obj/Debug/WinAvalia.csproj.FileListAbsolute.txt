@@ -8,6 +8,7 @@ C:\IFPB2018\RHT\ProjetoRHT\WinAvalia\bin\Debug\FormModql.dll
 C:\IFPB2018\RHT\ProjetoRHT\WinAvalia\bin\Debug\MySql.Data.dll
 C:\IFPB2018\RHT\ProjetoRHT\WinAvalia\bin\Debug\MySql.Data.Entity.EF6.dll
 C:\IFPB2018\RHT\ProjetoRHT\WinAvalia\bin\Debug\NumericBox.dll
+C:\IFPB2018\RHT\ProjetoRHT\WinAvalia\bin\Debug\Syncfusion.Chart.Base.dll
 C:\IFPB2018\RHT\ProjetoRHT\WinAvalia\bin\Debug\Syncfusion.Shared.Base.dll
 C:\IFPB2018\RHT\ProjetoRHT\WinAvalia\bin\Debug\Syncfusion.Shared.Windows.dll
 C:\IFPB2018\RHT\ProjetoRHT\WinAvalia\bin\Debug\Syncfusion.Tools.Windows.dll
@@ -19,6 +20,7 @@ C:\IFPB2018\RHT\ProjetoRHT\WinAvalia\bin\Debug\AvaliaCore.exe.config
 C:\IFPB2018\RHT\ProjetoRHT\WinAvalia\bin\Debug\EntityFramework.xml
 C:\IFPB2018\RHT\ProjetoRHT\WinAvalia\bin\Debug\EntityFramework.SqlServer.xml
 C:\IFPB2018\RHT\ProjetoRHT\WinAvalia\bin\Debug\FormModql.pdb
+C:\IFPB2018\RHT\ProjetoRHT\WinAvalia\bin\Debug\Syncfusion.Chart.Base.xml
 C:\IFPB2018\RHT\ProjetoRHT\WinAvalia\bin\Debug\Syncfusion.Shared.Base.xml
 C:\IFPB2018\RHT\ProjetoRHT\WinAvalia\bin\Debug\Syncfusion.Shared.Windows.xml
 C:\IFPB2018\RHT\ProjetoRHT\WinAvalia\bin\Debug\Syncfusion.Tools.Windows.xml
@@ -26,11 +28,14 @@ C:\IFPB2018\RHT\ProjetoRHT\WinAvalia\bin\Debug\Syncfusion.SpellChecker.Base.xml
 C:\IFPB2018\RHT\ProjetoRHT\WinAvalia\obj\Debug\WinAvalia.csprojAssemblyReference.cache
 C:\IFPB2018\RHT\ProjetoRHT\WinAvalia\obj\Debug\WinAvalia.Avalia.resources
 C:\IFPB2018\RHT\ProjetoRHT\WinAvalia\obj\Debug\WinAvalia.Form.FormAvaliacao.resources
+C:\IFPB2018\RHT\ProjetoRHT\WinAvalia\obj\Debug\WinAvalia.Forms.FormClassificacao.resources
+C:\IFPB2018\RHT\ProjetoRHT\WinAvalia\obj\Debug\WinAvalia.Forms.FormGrafico.resources
 C:\IFPB2018\RHT\ProjetoRHT\WinAvalia\obj\Debug\WinAvalia.FormPessoa.resources
+C:\IFPB2018\RHT\ProjetoRHT\WinAvalia\obj\Debug\WinAvalia.Forms.FormRespostas.resources
+C:\IFPB2018\RHT\ProjetoRHT\WinAvalia\obj\Debug\WinAvalia.Forms.Login.resources
 C:\IFPB2018\RHT\ProjetoRHT\WinAvalia\obj\Debug\WinAvalia.Properties.Resources.resources
 C:\IFPB2018\RHT\ProjetoRHT\WinAvalia\obj\Debug\WinAvalia.csproj.GenerateResource.cache
 C:\IFPB2018\RHT\ProjetoRHT\WinAvalia\obj\Debug\WinAvalia.csproj.CoreCompileInputs.cache
 C:\IFPB2018\RHT\ProjetoRHT\WinAvalia\obj\Debug\WinAvalia.csproj.CopyComplete
 C:\IFPB2018\RHT\ProjetoRHT\WinAvalia\obj\Debug\WinAvalia.exe
 C:\IFPB2018\RHT\ProjetoRHT\WinAvalia\obj\Debug\WinAvalia.pdb
-C:\IFPB2018\RHT\ProjetoRHT\WinAvalia\obj\Debug\WinAvalia.Forms.FormClassificacao.resources

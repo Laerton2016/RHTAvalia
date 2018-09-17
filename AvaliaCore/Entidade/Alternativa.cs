@@ -11,23 +11,27 @@ namespace AvaliaCore.Entidade
     {
         [Key,DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         private Int64 _id;
+
         private Int64 _idPergunta;
         private String _descricao;
         private bool _positiva;
 
 
+        public long IdPergunta
+        {
+            get => _idPergunta;
+            set => _idPergunta = value;
+        }
 
+        [ForeignKey("IdPergunta")]
+        public virtual Pergunta Pergunta { get; set; }
         public long Id
         {
             get { return _id; }
             set { _id = value; }
         }
         
-        public long IdPergunta
-        {
-            get { return _idPergunta; }
-            set { _idPergunta = value; }
-        }
+        
 
         public string Descricao
         {
@@ -40,10 +44,7 @@ namespace AvaliaCore.Entidade
             get { return _positiva; }
             set { _positiva = value; }
         }
-
-        [ForeignKey("IdPergunta")]
-        public virtual Pergunta Pergunta { get; set; }
-
+        
         public override string ToString()
         {
             return Descricao.ToUpper();

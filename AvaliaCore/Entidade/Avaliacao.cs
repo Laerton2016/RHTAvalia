@@ -109,12 +109,15 @@ namespace AvaliaCore.Entidade
             };
             _pesos.Add(p);
         }
+        
 
         public void RemPeso(Classificacao classificacao)
         {
             Peso peso = _pesos.Where(p => p.IdClassificacao == classificacao.Id).First();
             if(peso != null) _pesos.Remove(peso);
         }
+
+        
 
         public override string ToString()
         {
