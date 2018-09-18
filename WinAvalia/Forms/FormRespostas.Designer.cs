@@ -180,6 +180,7 @@ namespace WinAvalia.Forms
             this.btAvaliar.Name = "btAvaliar";
             this.btAvaliar.Size = new System.Drawing.Size(28, 28);
             this.btAvaliar.Text = "Buscar";
+            this.btAvaliar.ToolTipText = "Avaliar pessoas";
             this.btAvaliar.Click += new System.EventHandler(this.btAvaliar_Click);
             // 
             // btResultados
@@ -191,6 +192,7 @@ namespace WinAvalia.Forms
             this.btResultados.Size = new System.Drawing.Size(28, 28);
             this.btResultados.Text = "toolStripButton1";
             this.btResultados.ToolTipText = "Resultados";
+            this.btResultados.Click += new System.EventHandler(this.btResultados_Click);
             // 
             // toolStripSeparator1
             // 

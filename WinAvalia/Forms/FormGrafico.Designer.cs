@@ -31,9 +31,9 @@ namespace WinAvalia.Forms
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormGrafico));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btGeral = new System.Windows.Forms.Button();
@@ -46,6 +46,7 @@ namespace WinAvalia.Forms
             this.cobAvaliado = new System.Windows.Forms.ComboBox();
             this.charGeral = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.labAvaliador = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.panelLeft.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picIcone)).BeginInit();
             this.panelTop.SuspendLayout();
@@ -89,6 +90,7 @@ namespace WinAvalia.Forms
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.button1);
             this.panel2.Controls.Add(this.btGeral);
             this.panel2.Controls.Add(this.btCategoria);
             this.panel2.Controls.Add(this.btAvaliado);
@@ -107,9 +109,9 @@ namespace WinAvalia.Forms
             // 
             this.btGeral.Image = global::WinAvalia.Properties.Resources.sincroniza_24;
             this.btGeral.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btGeral.Location = new System.Drawing.Point(206, 278);
+            this.btGeral.Location = new System.Drawing.Point(179, 278);
             this.btGeral.Name = "btGeral";
-            this.btGeral.Size = new System.Drawing.Size(157, 37);
+            this.btGeral.Size = new System.Drawing.Size(184, 37);
             this.btGeral.TabIndex = 8;
             this.btGeral.Text = "Gráfico geral";
             this.btGeral.UseVisualStyleBackColor = true;
@@ -119,20 +121,21 @@ namespace WinAvalia.Forms
             // 
             this.btCategoria.Image = global::WinAvalia.Properties.Resources.sincroniza_24;
             this.btCategoria.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btCategoria.Location = new System.Drawing.Point(206, 228);
+            this.btCategoria.Location = new System.Drawing.Point(179, 228);
             this.btCategoria.Name = "btCategoria";
-            this.btCategoria.Size = new System.Drawing.Size(157, 37);
+            this.btCategoria.Size = new System.Drawing.Size(184, 37);
             this.btCategoria.TabIndex = 6;
             this.btCategoria.Text = "Por categoria";
             this.btCategoria.UseVisualStyleBackColor = true;
+            this.btCategoria.Click += new System.EventHandler(this.btCategoria_Click);
             // 
             // btAvaliado
             // 
             this.btAvaliado.Image = global::WinAvalia.Properties.Resources.sincroniza_24;
             this.btAvaliado.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btAvaliado.Location = new System.Drawing.Point(206, 117);
+            this.btAvaliado.Location = new System.Drawing.Point(179, 117);
             this.btAvaliado.Name = "btAvaliado";
-            this.btAvaliado.Size = new System.Drawing.Size(157, 37);
+            this.btAvaliado.Size = new System.Drawing.Size(184, 37);
             this.btAvaliado.TabIndex = 5;
             this.btAvaliado.Text = "Por avaliado";
             this.btAvaliado.UseVisualStyleBackColor = true;
@@ -186,17 +189,17 @@ namespace WinAvalia.Forms
             this.charGeral.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            chartArea1.Name = "ChartArea1";
-            this.charGeral.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.charGeral.Legends.Add(legend1);
+            chartArea4.Name = "ChartArea1";
+            this.charGeral.ChartAreas.Add(chartArea4);
+            legend4.Name = "Legend1";
+            this.charGeral.Legends.Add(legend4);
             this.charGeral.Location = new System.Drawing.Point(0, 1);
             this.charGeral.Name = "charGeral";
             this.charGeral.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Pastel;
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.charGeral.Series.Add(series1);
+            series4.ChartArea = "ChartArea1";
+            series4.Legend = "Legend1";
+            series4.Name = "Series1";
+            this.charGeral.Series.Add(series4);
             this.charGeral.Size = new System.Drawing.Size(453, 362);
             this.charGeral.TabIndex = 2;
             this.charGeral.Text = "chart1";
@@ -210,6 +213,18 @@ namespace WinAvalia.Forms
             this.labAvaliador.Size = new System.Drawing.Size(194, 24);
             this.labAvaliador.TabIndex = 5;
             this.labAvaliador.Text = "Visualizar grafico:";
+            // 
+            // button1
+            // 
+            this.button1.Image = global::WinAvalia.Properties.Resources.sincroniza_24;
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(179, 326);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(184, 37);
+            this.button1.TabIndex = 9;
+            this.button1.Text = "Pontuação geral";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // FormGrafico
             // 
@@ -248,5 +263,6 @@ namespace WinAvalia.Forms
         private System.Windows.Forms.Button btGeral;
         private System.Windows.Forms.Button btCategoria;
         private System.Windows.Forms.Label labAvaliador;
+        private System.Windows.Forms.Button button1;
     }
 }

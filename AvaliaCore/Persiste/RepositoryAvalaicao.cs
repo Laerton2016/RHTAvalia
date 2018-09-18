@@ -144,7 +144,7 @@ namespace AvaliaCore.Persiste
         public List<Avaliacao> FindAvaliacoesFinalizadaByPessoa(Int64 idPessoa)
         {
             String SQL = "select avaliacao.* from avaliacao left join (select pergunta.*, resposta.IdPergunta from pergunta left join resposta on resposta.IdPergunta = pergunta.Id ) as p " +
-                         "on avaliacao.id = p.Avaliacao_Id where p.IdPergunta is not null and avaliacao.idAvaliador = " + idPessoa + "group by avaliacao.Id;";
+                         "on avaliacao.id = p.Avaliacao_Id where p.IdPergunta is not null and avaliacao.idAvaliador = " + idPessoa + " group by avaliacao.Id;";
             return _context.Avaliacaos.SqlQuery(SQL).ToList();
         }
     }

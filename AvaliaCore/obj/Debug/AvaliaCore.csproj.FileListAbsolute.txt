@@ -11,3 +11,4 @@ C:\IFPB2018\RHT\ProjetoRHT\AvaliaCore\obj\Debug\AvaliaCore.csproj.CoreCompileInp
 C:\IFPB2018\RHT\ProjetoRHT\AvaliaCore\obj\Debug\AvaliaCore.csproj.CopyComplete
 C:\IFPB2018\RHT\ProjetoRHT\AvaliaCore\obj\Debug\AvaliaCore.exe
 C:\IFPB2018\RHT\ProjetoRHT\AvaliaCore\obj\Debug\AvaliaCore.pdb
+C:\IFPB2018\RHT\ProjetoRHT\AvaliaCore\obj\Debug\AvaliaCore.csprojAssemblyReference.cache

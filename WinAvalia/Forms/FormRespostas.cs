@@ -26,10 +26,12 @@ namespace WinAvalia.Forms
         private Int64 _idAvaliado = 0;
         private List<Pessoa> _avaliados;
         private List<Pergunta> _perguntas;
+        private RHTContext _context;
         public FormRespostas(RHTContext context)
         {
             InitializeComponent();
             _service = new ServiceAvalicao(context);
+            _context = context;
         }
 
         public Pessoa Avaliador
@@ -136,6 +138,7 @@ namespace WinAvalia.Forms
                 else
                 {
                     Encerra();
+                    
                 }
             }
         }
@@ -148,6 +151,31 @@ namespace WinAvalia.Forms
                 MessageBoxIcon.Information);
             panelPergunta.Visible = false;
             panelInformacoes.Visible = false;
+            
+            FormGrafico childForm = new FormGrafico(_context, _avaliacao.Id);
+            childForm.Show();
+            childForm.MdiParent = this.MdiParent;
+            childForm.WindowState = FormWindowState.Normal;
+            childForm.WindowState = FormWindowState.Maximized;
+
+        }
+
+        private void btResultados_Click(object sender, EventArgs e)
+        {
+            if (cobAvaliacoes.SelectedItem == null)
+            {
+                MessageBox.Show("Selecione uma das avaliações para exibir o gráfico.", Text, MessageBoxButtons.OK,
+                    MessageBoxIcon.Asterisk);
+                cobAvaliacoes.Focus();
+                return;
+            }
+
+            FormGrafico childForm = new FormGrafico(_context,((Avaliacao)cobAvaliacoes.SelectedItem).Id);
+            
+            childForm.Show();
+            childForm.MdiParent = this.MdiParent;
+            childForm.WindowState = FormWindowState.Normal;
+            childForm.WindowState = FormWindowState.Maximized;
         }
 
         private void btIniciar_Click(object sender, EventArgs e)

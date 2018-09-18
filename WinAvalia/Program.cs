@@ -24,7 +24,7 @@ namespace WinAvalia
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            Application.Run(new FormGrafico());
+            Application.Run(new Login());
         }
     }
 }
