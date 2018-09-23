@@ -39,3 +39,4 @@ C:\IFPB2018\RHT\ProjetoRHT\WinAvalia\obj\Debug\WinAvalia.csproj.CoreCompileInput
 C:\IFPB2018\RHT\ProjetoRHT\WinAvalia\obj\Debug\WinAvalia.csproj.CopyComplete
 C:\IFPB2018\RHT\ProjetoRHT\WinAvalia\obj\Debug\WinAvalia.exe
 C:\IFPB2018\RHT\ProjetoRHT\WinAvalia\obj\Debug\WinAvalia.pdb
+C:\IFPB2018\RHT\ProjetoRHT\WinAvalia\obj\Debug\WinAvalia.Forms.AboutBox.resources

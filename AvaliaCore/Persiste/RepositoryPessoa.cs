@@ -121,7 +121,7 @@ namespace AvaliaCore.Persiste
         {
             String SQL = String.Format("Select * from pessoa where login ='{0}' and senha ='{1}'", login, senha);
             var retorno = _context.Pessoas.SqlQuery(SQL);
-            return (retorno == null) ? null : retorno.First();
+            return retorno?.First();
         }
 
         /// <summary>

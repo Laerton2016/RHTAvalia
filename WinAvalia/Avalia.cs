@@ -145,5 +145,13 @@ namespace WinAvalia
             childForm.WindowState = FormWindowState.Maximized;
 
         }
+
+
+        private void helpMenu_Click(object sender, EventArgs e)
+        {
+            AboutBox childForm = new AboutBox();
+            childForm.Show();
+
+        }
     }
 }
